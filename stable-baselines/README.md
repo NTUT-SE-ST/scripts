@@ -34,6 +34,7 @@ stable-baselines 專案目錄:
 ```
 
 > ### 運行 GPU 版本
+> [Build and run Docker containers leveraging NVIDIA GPUs](https://github.com/NVIDIA/nvidia-docker) 
 > ```
 > SB_PATH=/homes/user/stable-baselines/ run_docker_gpu.sh python train.py
 > ```
