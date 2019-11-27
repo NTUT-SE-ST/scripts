@@ -33,7 +33,7 @@ RUN \
     pip install keras && \
     python && \
     cd /root/code/env/ && \
-    python set_env.py && \
+    env PYTHONPATH='/root/code/env/' && \
     rm -rf $HOME/.cache/pip
 
 ENV PATH=$VENV/bin:$PATH
