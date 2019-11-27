@@ -23,7 +23,7 @@ RUN apt-get -y update \
 ENV VENV /root/venv
 
 COPY ./definitions.py /root/code/env/definitions.py
-COPY ./set_env.py /root/code/env/set_env.py
+
 RUN \
     pip install virtualenv && \
     virtualenv $VENV --python=python3 && \
