@@ -20,10 +20,10 @@ RUN apt-get -y update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-ENV CODE_DIR /root/code
 ENV VENV /root/venv
 
 COPY ./definitions.py /root/code/env/definitions.py
+COPY ./set_env.py /root/code/env/set_env.py
 RUN \
     pip install virtualenv && \
     virtualenv $VENV --python=python3 && \
@@ -32,9 +32,8 @@ RUN \
     pip install tensorflow-gpu==1.14.0 && \
     pip install keras && \
     python && \
-    import sys && \
-    sys.path.append('/root/code/env/') && \
-    exit() && \
+    cd /root/code/env/ && \
+    python set_env.py && \
     rm -rf $HOME/.cache/pip
 
 ENV PATH=$VENV/bin:$PATH
