@@ -22,20 +22,18 @@ RUN apt-get -y update \
 
 ENV VENV /root/venv
 
-COPY ./definitions.py /root/code/env/definitions.py
-
 RUN \
+    mkdir /root/code && \
     pip install virtualenv && \
     virtualenv $VENV --python=python3 && \
     . $VENV/bin/activate && \
     pip install --upgrade pip && \
     pip install tensorflow-gpu==1.14.0 && \
     pip install keras && \
-    python && \
-    cd /root/code/env/ && \
-    env PYTHONPATH='/root/code/env/' && \
+    pip install matplotlib && \
     rm -rf $HOME/.cache/pip
 
 ENV PATH=$VENV/bin:$PATH
+ENV PYTHONPATH='/root/code/':$PATH
 
 CMD /bin/bash
