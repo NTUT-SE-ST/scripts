@@ -36,7 +36,12 @@ stable-baselines 專案目錄:
 > ### 運行 GPU 版本
 > [Build and run Docker containers leveraging NVIDIA GPUs](https://github.com/NVIDIA/nvidia-docker) 
 > ```
+> # Default all GPU
 > SB_PATH=/homes/user/stable-baselines/ ./run_docker_gpu.sh python train.py
+>
+> # Starting a GPU enabled container on specific GPUs
+> # https://github.com/NVIDIA/nvidia-docker#usage
+> GPUS="device=1,2" SB_PATH=/homes/user/stable-baselines/ ./run_docker_gpu.sh python train.py
 > ```
 
 > ### 運行 CPU 版本
@@ -44,3 +49,14 @@ stable-baselines 專案目錄:
 > SB_PATH=/homes/user/stable-baselines/ ./run_docker_cpu.sh python train.py
 > ```
 
+## run_docker_tensorboard
+
+移動到 tensorboard 紀錄存放資料夾
+
+> ```
+> # Default port: 6006
+> ./run_docker_tensorboard.sh tensorboard --logdir=./ --host=0.0.0.0
+>
+> # Port 80
+> TARGET_PORT=80 ./run_docker_tensorboard.sh tensorboard --logdir=./ --host=0.0.0.0
+> ```
