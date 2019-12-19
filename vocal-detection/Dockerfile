@@ -32,6 +32,7 @@ RUN \
     pip install keras && \
     pip install matplotlib && \
     pip install librosa && \
+    apt-get update && \
     apt-get install libsndfile1 && \
     rm -rf $HOME/.cache/pip
 
