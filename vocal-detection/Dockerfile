@@ -17,6 +17,7 @@ RUN apt-get -y update \
     libxrender1 \
     libopenmpi-dev \
     zlib1g-dev \
+    libsndfile1 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -32,8 +33,6 @@ RUN \
     pip install keras && \
     pip install matplotlib && \
     pip install librosa && \
-    apt-get update && \
-    apt-get install libsndfile1 && \
     rm -rf $HOME/.cache/pip
 
 ENV PATH=$VENV/bin:$PATH
