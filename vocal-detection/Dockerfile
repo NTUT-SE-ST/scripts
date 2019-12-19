@@ -31,6 +31,7 @@ RUN \
     pip install tensorflow-gpu==1.14.0 && \
     pip install keras && \
     pip install matplotlib && \
+    pip install librosa && \
     rm -rf $HOME/.cache/pip
 
 ENV PATH=$VENV/bin:$PATH
