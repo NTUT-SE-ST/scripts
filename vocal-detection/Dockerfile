@@ -29,8 +29,8 @@ RUN \
     virtualenv $VENV --python=python3 && \
     . $VENV/bin/activate && \
     pip install --upgrade pip && \
-    pip install tensorflow-gpu==1.14.0 && \
-    pip install keras && \
+    pip install tensorflow-gpu==1.4.0 && \
+    pip install keras==2.1.3 && \
     pip install matplotlib && \
     pip install librosa && \
     rm -rf $HOME/.cache/pip
