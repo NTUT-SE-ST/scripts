@@ -25,10 +25,11 @@ ENV VENV /root/venv
 
 RUN \
     mkdir /root/code && \
+    pip install --upgrade pip && \
+    pip install --upgrade setuptools && \
     pip install virtualenv && \
     virtualenv $VENV --python=python3 && \
     . $VENV/bin/activate && \
-    pip install --upgrade pip && \
     pip install tensorflow-gpu==1.4.0 && \
     pip install keras==2.1.3 && \
     pip install matplotlib && \
