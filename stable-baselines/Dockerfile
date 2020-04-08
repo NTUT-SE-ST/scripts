@@ -29,15 +29,16 @@ ENV VENV /root/venv
 COPY ./setup.py /root/code/setup.py
 COPY ./stable_baselines/ /root/code/stable_baselines/
 RUN \
+    pip install --upgrade pip && \
+    pip install --upgrade setuptools && \
     pip install virtualenv && \
     virtualenv $VENV --python=python3 && \
     . $VENV/bin/activate && \
     cd $CODE_DIR && \
-    pip install --upgrade pip && \
     if [ "$USE_GPU" = "True" ]; then \
-        TENSORFLOW_PACKAGE="tensorflow-gpu==1.8.0"; \
+        TENSORFLOW_PACKAGE="tensorflow-gpu==1.14.0"; \
     else \
-        TENSORFLOW_PACKAGE="tensorflow==1.8.0"; \
+        TENSORFLOW_PACKAGE="tensorflow==1.14.0"; \
     fi; \
     pip install ${TENSORFLOW_PACKAGE} && \
     if [ "$INSTALL_MPI" = "True" ]; then \
@@ -48,6 +49,10 @@ RUN \
     pip install -e .${EXTRAS_REQUIRE} && \
     rm -rf $HOME/.cache/pip && \
     rm -rf stable_baselines
+
+RUN \
+    pip install pynput && \
+    rm -rf $HOME/.cache/pip 
 
 ENV PATH=$VENV/bin:$PATH
 
