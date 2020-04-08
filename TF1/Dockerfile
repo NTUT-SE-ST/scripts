@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:latest-gpu-py3
+FROM tensorflow/tensorflow:1.15.2-gpu-py3
 
 RUN apt-get -y update && \
     apt-get -y install libsm6 \
