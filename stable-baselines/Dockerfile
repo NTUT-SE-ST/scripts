@@ -50,10 +50,10 @@ RUN \
     rm -rf $HOME/.cache/pip && \
     rm -rf stable_baselines
 
+ENV PATH=$VENV/bin:$PATH
+
 RUN \
     pip install pynput && \
     rm -rf $HOME/.cache/pip 
-
-ENV PATH=$VENV/bin:$PATH
 
 CMD /bin/bash
