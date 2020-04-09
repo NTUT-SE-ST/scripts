@@ -4,7 +4,7 @@ CPU_PARENT=ubuntu:18.04
 GPU_PARENT=nvidia/cuda:10.0-cudnn7-runtime-ubuntu18.04
 
 TAG=ntutselab/stable-baselines
-VERSION=v2.9.1
+VERSION=v2.10.1
 
 if [[ ${USE_GPU} == "True" ]]; then
   PARENT=${GPU_PARENT}

@@ -36,9 +36,9 @@ RUN \
     . $VENV/bin/activate && \
     cd $CODE_DIR && \
     if [ "$USE_GPU" = "True" ]; then \
-        TENSORFLOW_PACKAGE="tensorflow-gpu==1.14.0"; \
+        TENSORFLOW_PACKAGE="tensorflow-gpu==1.15.2"; \
     else \
-        TENSORFLOW_PACKAGE="tensorflow==1.14.0"; \
+        TENSORFLOW_PACKAGE="tensorflow==1.15.2"; \
     fi; \
     pip install ${TENSORFLOW_PACKAGE} && \
     if [ "$INSTALL_MPI" = "True" ]; then \
